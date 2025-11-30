@@ -1,0 +1,18 @@
+{
+  "id": $PetBody.petID,
+  "category": {
+    "id": $PetBody.petCategoryIdVal,
+    "name": "$PetBody.petCategoryTypeVal"
+  },
+  "name": "$PetBody.petNameVal",
+  "photoUrls": [
+    "$PetBody.petPhotoUrl"
+  ],
+  "tags": [
+    {
+      "id": $PetBody.petTagId,
+      "name": "$PetBody.petTagName"
+    }
+  ],
+  "status": "$PetBody.petStatusVal"
+}

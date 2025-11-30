@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pet>
+	<id>$PetBody.petID</id>
+	<Category>
+		<id>$PetBody.petCategoryIdVal</id>
+		<name>$PetBody.petCategoryTypeVal</name>
+	</Category>
+	<name>$PetBody.petNameVal</name>
+	<photoUrls>
+		<photoUrl>$PetBody.petPhotoUrl</photoUrl>
+	</photoUrls>
+	<tags>
+		<Tag>
+			<id>$PetBody.petTagId</id>
+			<name>$PetBody.petTagName</name>
+		</Tag>
+	</tags>
+	<status>$PetBody.petStatusVal</status>
+</Pet>
