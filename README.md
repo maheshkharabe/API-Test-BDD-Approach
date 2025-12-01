@@ -1,0 +1,3 @@
+Work In Progress...
+API testing using RestAssured library and Cucumber/TestNG framework.
+There are few service exposed on (https://petstore.swagger.io/) which you can play around with.
