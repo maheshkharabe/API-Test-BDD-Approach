@@ -5,14 +5,14 @@ import java.util.Date;
 
 public class DateTimeUtils {
 
-    public static String currentDate_YYYY_MM_DD;
-    public static String currentDate_yyyyMMdd;
-    public static String currentTime_hhMMss;
-    public static String currentTime_hh;
-    public static String currentTime_MM;
-    public static String currentTime_ss;
-    public static String currentTime_SSS;
-    public static String currentTime_hhMMssSSS;
+    public String currentDate_YYYY_MM_DD;
+    public String currentDate_yyyyMMdd;
+    public String currentTime_hhMMss;
+    public String currentTime_hh;
+    public String currentTime_MM;
+    public String currentTime_ss;
+    public String currentTime_SSS;
+    public String currentTime_hhMMssSSS;
 
     public DateTimeUtils(){
         Date currDateTm = new Date();

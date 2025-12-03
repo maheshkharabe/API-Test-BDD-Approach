@@ -9,6 +9,7 @@ public class TestConfigsForAPIPetStore {
     public static String ENV_FLAG = "";
     public static String GET_PET_PATH="";
 
+    public static final String pathToExcelDataFile ="src/test/java/TestData/Data_PetStore.xlsx";
     public static final String pathAddPetRequestBodyXML = "/src/test/java/Templates/templateAddPetBodyXML.vm";
     public static final String pathAddPetRequestBodyJson = "/src/test/java/Templates/templateAddPetBodyJSON.vm";
 

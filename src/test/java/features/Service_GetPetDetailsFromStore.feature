@@ -4,22 +4,26 @@ Feature: Get Pet details from store
 
     But Conditional_Environment_SetUp
 
-  Scenario Outline: Retrieve pet details from store with VALID data
+  Scenario Outline: Retrieve pet details from store with valid data
 
-    Given user_calls_findPetByID_Service('<PayloadType>','<Pet_id>')
-    When getPet_service_returns_<ExpectedStatusCode>
-    Then pet_details_are_correctly_retrieved('<PayloadType>','<Pet_id>','<Pet_Category_id>','<Pet_Category_name>','<Pet_name>','<Pet_photoUrls_photoUrl>','<Pet_tags_Tag_id>','<Pet_tags_Tag_Name>','<Pet_status>')
-
-    Examples:
-      |TestName           |PayloadType|Pet_id|Pet_Category_id|Pet_Category_name|Pet_name|Pet_photoUrls_photoUrl|Pet_tags_Tag_id|Pet_tags_Tag_Name|Pet_status|ExpectedStatusCode|
-      |TC_01_Json_PetFound|	Json      | 100  |	1            |	Dog1           |MyDog2  |	MyDogPicURL3       |	1          |	Domestic1    |available |200               |
-
-  Scenario Outline: Retrieve pet details from store with InValid data
-
-    Given user_calls_findPetByID_Service('<PayloadType>','<Pet_id>')
-    Then getPet_service_returns_<ExpectedStatusCode>
-    And user_received_feedback_message('<stdCode>','<stdType>','<stdMessage>')
+    Given user_provides_pet_information('<Unique_Test_Case_ID>','<SheetName>')
+    When user_calls_findPetByID_Service
+    Then getPet_service_returns_<ExpectedResponseCode>
+    And user_receives_pet_data_in_response_body
 
     Examples:
-      |TestName           |PayloadType|Pet_id|ExpectedStatusCode|stdCode|stdType|stdMessage   |
-      |TC_01_Json_NotFound|	Json      | 888  |404               |1      |error  |Pet not found|
+      |Unique_Test_Case_ID                       |SheetName|ExpectedResponseCode|
+      |TC_01_Get_Pet_From_Store_with_valid_PetID |GET_PET  |200                 |
+
+
+  Scenario Outline: Retrieve pet details from store with Invalid data
+
+    Given user_provides_pet_information('<Unique_Test_Case_ID>','<SheetName>')
+    When user_calls_findPetByID_Service
+    Then getPet_service_returns_<ExpectedResponseCode>
+    And user_received_feedback_message_for_invalid_data('<expRespBodyCode>','<expRespBodyStdType>','<expRespBodyStdMessage>')
+
+
+    Examples:
+      |Unique_Test_Case_ID                                      |SheetName|ExpectedResponseCode|expRespBodyCode|expRespBodyStdType|expRespBodyStdMessage|
+      |TC_02_Get_Pet_From_Store_with_invalid_PetID_doesnt_exist |GET_PET  |404                 |1              |error             |Pet not found        |
